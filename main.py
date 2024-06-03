@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from core.models import Base, db_helper
+from api import router as apiv1_router
 
 
 @asynccontextmanager
@@ -17,6 +18,7 @@ app = FastAPI(
     title='Alembic lesson',
     lifespan=lifespan
 )
+app.include_router(apiv1_router)
 
 
 if __name__ == '__main__':
